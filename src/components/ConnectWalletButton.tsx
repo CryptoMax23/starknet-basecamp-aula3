@@ -70,12 +70,12 @@ export default function ConnectWalletButton() {
         onClick={() => setShowModal(true)}
         className="bg-green-500 text-black font-bold px-6 py-3 rounded shadow hover:bg-green-400 transition"
       >
-        {'Conectar Carteira'}
+        {'Connect Wallet'}
       </button>
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-gray-800 text-green-500 font-mono p-6 rounded shadow-lg space-y-4">
-            <h2 className="text-2xl font-bold">Selecione um Connector</h2>
+            <h2 className="text-2xl font-bold">Select a connector</h2>
             <div className="flex flex-col gap-4 py-8">
               {connectors.map((connector, index) => (
                 <Wallet
@@ -92,7 +92,7 @@ export default function ConnectWalletButton() {
               onClick={() => setShowModal(false)}
               className="mt-4 text-sm underline hover:text-green-400 transition"
             >
-              Cancelar
+              Cancel
             </button>
           </div>
         </div>
