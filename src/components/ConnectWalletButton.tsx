@@ -13,23 +13,26 @@ const Wallet = ({
     alt,
     src,
     connector,
+    onClose,
   }: {
     name: string;
     alt: string;
     src: string;
     connector: Connector;
+    onClose: () => void;
   }) => {
     const { connect } = useConnect();
     const isSvg = src?.startsWith("<svg");
   
     function handleConnectWallet(): void {
       connect({ connector });
+      onClose();
     }
   
     return (
       <button
         className="hover:bg-gray-900 flex cursor-pointer items-center gap-4 p-2 text-start transition-all hover:rounded-[10px]"
-        onClick={(e) => handleConnectWallet(e)}
+        onClick={() => handleConnectWallet()}
       >
         <div className="h-[2.2rem] w-[2.2rem] rounded-[5px]">
           {isSvg ? (
@@ -81,6 +84,7 @@ export default function ConnectWalletButton() {
                   name={connector.name}
                   connector={connector}
                   alt="alt"
+                  onClose={() => setShowModal(false)}
                 />
               ))}
             </div>
